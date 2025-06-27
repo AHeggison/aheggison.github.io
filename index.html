@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Automating Reliable UV SO<sub>2</sub> Camera Retrievals For Volcanology</title>
@@ -48,6 +49,12 @@ body {
   content: "";
   clear: both;
   display: table;
+}
+
+.column2 {
+  float: left;
+  width: 50%;
+  padding: 5px;
 }
 
 figcaption {
@@ -128,6 +135,36 @@ However, this isn't always the case...
 Networks pre-trained on the ImageNet dataset are fine-tuned using manually classified samples, to output a "lens-obscurance" index and "cloud obscurance" index.
 Models are being evaluated for ability to generalise to data from unseen volcano locations, and prediction accuracy on new data from volcanoes seen in training.
 </p>
+<div class="row">
+  <div class="column2">
+    <figure>
+    <img src="WebpageImages/OnLensSetFullSplit_Accuracy.png" alt="Graph showing increasing trend in prediction accuracy against training epochs." style="width:100%">
+    <figcaption>Accuracy of a model-in-develpoment classifying on-lens obscurance, increasing as the model is trained.</figcaption>
+    </figure>
+  </div>
+  <div class="column2">
+    <figure>
+    <img src="WebpageImages/FGCloudSetFullSplit_Accuracy.png" alt="Graph showing increasing trend in prediction accuracy against training epochs, less smooth than figure on the left." style="width:100%">
+    <figcaption>Accuracy of a model-in-development for classifying cloud interacting with plume.</figcaption>
+    </figure>
+  </div>
+</div>
+The training process for baseline versions of these models is illustrated above. The prediction accuracy on the validation set increases with training epochs until the model has learned all the helpful information it can from the given data, at which point the accuracy levels off or decreases. We hope to improve these results futher through hyperparameter tuning, and expansion of the labelled dataset (described below). Currently predictions are generally strong on the most and least obscured data, but there is more error near the decision boundary. The results vary at different volcanoes too, as shown below. 
+<div class="row">
+  <div class="column2">
+    <figure>
+    <img src="WebpageImages/Kilauea ValidationSet Cloud Index Predictions.png" alt="" style="width:100%">
+    <figcaption>The predictions of the cloud index on data from Kīlauea are really bad! Cloud often slightly mixes with the plume, and doesn't lie over the flank so this data looks significantly different to other locations. </figcaption>
+    </figure>
+  </div>
+  <div class="column2">
+    <figure>
+    <img src="WebpageImages/Merapi ValidationSet Cloud Index Predictions.png" alt="" style="width:100%">
+    <figcaption>However at other locations, in this case Merapi, the accuracy is very strong. In particular, all of the manually labelled "Very" and "In Calc" (affecting the area where absorbance is calculated) data is identified strongly by the index.</figcaption>
+    </figure>
+  </div>
+</div>
+
 
 <h2>Future Work:</h2>
 Next planned steps include experimentation with automation of further processing steps (e.g. plume segmentation and background light estimation), and uncertainty quantification. 
