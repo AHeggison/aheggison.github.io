@@ -165,16 +165,33 @@ The training process for baseline versions of these models is illustrated above.
   </div>
 </div>
 
-<video controls>
-  <source src="WebpageImages/Kilauea_2023-05-23Predictions.avi" type="video/avi">
-</video>
-
+<div class="row">
+  <div class="column2">
+    We found that the main limitation on the performance of the models in many cases was the labelled training dataset given. 
+    However, manually labelling the terabytes of data available is not possible, and would make model training impractical as the dataset size increased.
+    Therefore we are testing the use of a procedure to select key informative samples to assign manual labels to: 
+    the features which the models use to describe given data in thier intermediate laters were calculated for a pool of potential new data to be labelled, 
+    these features were clustered. Samples were selected from clusters which had low proportion of their data labelled already, high inconsistency in true labels,
+    and with preference to samples where the model-prediction disagreed with the majority class in that cluster. Adding these new samples increased the training set
+    size by just over 10%, and initial tests have found that training with this additional data significantly improves the predictions. 
+  </div>
+  <div class="column2">
+    <figure>
+    <img src="WebpageImages/Dataset Expansion.png" alt="" style="width:100%">
+    <figcaption>A 2D representation of the feature space, showing the location of unlabelled samples from the dataset as a whole, the original labelled dataset, and the additional data selected for labelling.</figcaption></figure>
+  </div>
+</div>
+  
 <h2>Future Work:</h2>
-Next planned steps include experimentation with automation of further processing steps (e.g. plume segmentation and background light estimation), and uncertainty quantification. 
+Next planned steps include experimentation with automation of further processing steps (e.g. plume segmentation for background light estimation), and uncertainty quantification. 
 This area of work has potential for use with other UV volcano camera systems, aswell as wider application e.g. to visible wavelength volcano camera data.
 
-
-
+<h2>Contact/About</h2>  
+<p>Hi! I’m Alyssa, a PhD student at the University of Sheffield where I’m supervised by members of the Volcanology and Computer Vision Research Groups: 
+Supervised by: Dr Thomas Wilkes (Primary), Dr Tom Pering and Dr Jefersson dos Santos
+I began working on this project in 2024, after studying maths in Edinburgh where I worked on algorithms for fair division of cakes! 
+Applications of computer science and maths especially interest me and I hope to contribute a useful tool for volcano monitoring with this project.</p>
+If you have any thoughts on this project, please email me at: asheggison1@sheffield.ac.uk
 </body>
   
 </html>
