@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-<title>Automating Reliable UV SO_2 Camera Retrievals For Volcanology</title>
+<title>Automating Reliable UV SO<sub>2</sub> Camera Retrievals For Volcanology</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -33,9 +33,21 @@
 .navbar a:hover {
 background-color: #7c6859;
 }
-  
+
 body {
   font-family: Verdana, sans-serif;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+  
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 </style> 
@@ -47,6 +59,18 @@ body {
 
 <div class="navbar">
 <a href="About.html" class="right">Contact/About Me</a>
+</div>
+
+<div class="row">
+  <div class="column">
+    <img src="WebpageImages/PiCamAtReventador.jpg" alt="PiCam UV Camera" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="OriginalUV.png" alt="Raw UV Camera Data" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="Absorbance.png" alt="Converted to SO2 Absorbance" style="width:100%">
+  </div>
 </div>
   
 <p>Exploring use of computer vision techniques to enable automated measurement of volcanic sulphur dioxide flux, and provide informed estimates of the uncertainty.</p> 
